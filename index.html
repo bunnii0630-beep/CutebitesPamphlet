@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Cutebites Pamphlet</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFC0CB, #87CEEB);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Center content */
+        .wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Main box */
+        .box {
+            text-align: center;
+            background: linear-gradient(145deg, #C8A2C8, #F5F5DC);
+            padding: 60px 50px;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeIn 1.2s ease forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.6em;
+            margin-bottom: 15px;
+            color: #5c4033;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #7a1e3a;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            color: #6e4f4f;
+        }
+
+        /* Button */
+        a {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1.2em;
+            background: #ff8fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a:hover {
+            transform: scale(1.08);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85em;
+            background: linear-gradient(145deg, #C8A2C8, #F5F5DC);
+            color: #661b2e;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: sparkleMove linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes sparkleMove {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-100px) scale(1.5); opacity: 0.3; }
+            100% { transform: translateY(-200px) scale(0); opacity: 0; }
+        }
+
+        /* Floating emoji */
+        .emoji {
+            position: fixed;
+            font-size: 24px;
+            animation: floatUp 1.5s ease-out forwards;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-80px) scale(1.5); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .box {
+                padding: 40px 25px;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            p { font-size: 1em; }
+            a { font-size: 1em; padding: 12px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Sparkles -->
+    <div class="sparkle" style="left:10%; animation-duration: 5s;"></div>
+    <div class="sparkle" style="left:30%; animation-duration: 7s;"></div>
+    <div class="sparkle" style="left:50%; animation-duration: 6s;"></div>
+    <div class="sparkle" style="left:70%; animation-duration: 5.5s;"></div>
+    <div class="sparkle" style="left:85%; animation-duration: 8s;"></div>
+
+    <!-- Main Box -->
+    <div class="box">
+        <h1>Welcome to Cutebites Pamphlet</h1>
+        <h2>ᶠᵒᵒᵈ ᶦⁿᵍʳᵉᵈᶦᵉⁿᵗˢ ᵃʳᵒᵘⁿᵈ ᵗʰᵉ ʷᵒʳˡᵈ</h2>
+        <p>💕 Your cozy online recipe book ✨</p>
+        <a href="pages.html" onclick="createEmojis(event)">Enter Recipes</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 RockyJames B. Gepte & Fatima Nhezreen D. Serabani | Sandalwood | ICT
+</footer>
+
+<script>
+function createEmojis(event) {
+    const emojis = ["✨","🍰","💕","😋","🍝","🧁"];
+    for (let i = 0; i < 6; i++) {
+        const emoji = document.createElement("div");
+        emoji.classList.add("emoji");
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = (event.clientX + Math.random() * 40 - 20) + "px";
+        emoji.style.top = (event.clientY + Math.random() * 20 - 10) + "px";
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 1500);
+    }
+}
+</script>
+
+</body>
+</html>
